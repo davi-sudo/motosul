@@ -1,0 +1,12 @@
+# Nao publicar: captura de dados, docs e artefatos locais
+data/
+.git/
+.gitignore
+README.md
+*.zip
+*.rar
+
+# Arquivos de sistema
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
