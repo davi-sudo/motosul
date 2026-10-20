@@ -3,6 +3,36 @@
    Paleta: Preto Asfalto, Fibra de Carbono, Laranja Neon (#ff4800), Amarelo Competição
    ============================================================ */
 
+/* Fontes auto-hospedadas — latin subset, 4 arquivos (~116 KB) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('assets/fonts/inter-normal-100_900.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/barlow-condensed-italic-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url('assets/fonts/barlow-condensed-italic-800.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('assets/fonts/barlow-condensed-italic-900.woff2') format('woff2');
+}
+
 :root {
   --bg-dark: #07080a;
   --bg-surface: #0e1117;
@@ -11,7 +41,7 @@
   
   --text-main: #f0f3f8;
   --text-muted: #9ba6b5;
-  --text-dim: #677384;
+  --text-dim: #7e8a99;
 
   /* Cores de Competição */
   --race-orange: #ff4800;
@@ -26,12 +56,31 @@
   --line-strong: rgba(255, 255, 255, 0.18);
   --line-orange: rgba(255, 72, 0, 0.4);
 
-  --font-display: 'Barlow Condensed', -apple-system, sans-serif;
-  --font-hud: 'Chakra Petch', monospace, sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', -apple-system, sans-serif;
+  --font-hud: 'Inter', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Escala tipográfica fluida */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: clamp(1.05rem, 1.4vw, 1.18rem);
+  --fs-lg: clamp(1.3rem, 1.8vw, 1.5rem);
+  --fs-xl: clamp(1.8rem, 2.6vw, 2.2rem);
+  --fs-2xl: clamp(2.2rem, 4.4vw, 3.6rem);
+  --fs-3xl: clamp(2.8rem, 6.6vw, 5.6rem);
 
   --ease-race: cubic-bezier(0.16, 1, 0.3, 1);
   --wrap: 1240px;
+
+  color-scheme: dark;
+}
+
+/* Foco visível para teclado */
+:focus-visible {
+  outline: 3px solid var(--race-orange);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 * {
@@ -285,12 +334,11 @@ h1, h2, h3, h4 {
    ============================================================ */
 .hero-motocross {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: max(600px, calc(100svh - 120px));
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-block: clamp(100px, 15vh, 150px);
+  padding-block: clamp(40px, 5.5vh, 72px);
 }
 
 .hero-media-wrapper {
@@ -306,40 +354,32 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 36%;
-  transform: scale(1.02);
-  filter: contrast(1.15) saturate(1.18) brightness(0.92);
+  object-position: 70% 34%;
+  filter: contrast(1.03) saturate(1.06);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-video-bg { display: none; }
 }
 
-/* Overlay cinematográfico e agressivo: deixa o piloto totalmente visível e vibrante */
+/* Scrim único e monotônico: escurece só o lado do texto e deixa o piloto limpo */
 .hero-racing-overlay {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(105deg, rgba(7, 8, 10, 0.93) 0%, rgba(7, 8, 10, 0.8) 42%, rgba(7, 8, 10, 0.35) 75%, rgba(7, 8, 10, 0.72) 100%),
-    radial-gradient(circle at 75% 45%, rgba(255, 72, 0, 0.16), transparent 55%),
-    linear-gradient(0deg, var(--bg-dark) 0%, transparent 20%);
+  background: linear-gradient(
+    92deg,
+    rgba(7, 8, 10, 0.94) 0%,
+    rgba(7, 8, 10, 0.86) 32%,
+    rgba(7, 8, 10, 0.56) 55%,
+    rgba(7, 8, 10, 0.18) 78%,
+    rgba(7, 8, 10, 0.06) 100%
+  );
   z-index: 2;
-}
-
-.hero-dirt-particles {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 72, 0, 0.15) 1px, transparent 1px);
-  background-size: 38px 38px;
-  opacity: 0.35;
-  z-index: 3;
-  pointer-events: none;
 }
 
 .hero-content-container {
   position: relative;
   z-index: 10;
-  max-width: 860px;
   width: 100%;
 }
 
@@ -372,7 +412,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-  margin-bottom: 0.35em;
+  margin-bottom: 0.25em;
+  font-size: var(--fs-3xl);
   line-height: 0.9;
   letter-spacing: -0.02em;
 }
@@ -387,25 +428,25 @@ h1, h2, h3, h4 {
 
 .title-main {
   display: block;
-  font-size: clamp(3.2rem, 8vw, 6.6rem);
+  font-size: 0.92em;
   color: #ffffff;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9);
 }
 
 .title-highlight {
   display: block;
-  font-size: clamp(3.4rem, 8.5vw, 7.2rem);
+  font-size: 1em;
   color: var(--race-orange);
   text-shadow: 0 0 45px var(--race-orange-glow);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
 }
 
 .hero-desc {
-  font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+  font-size: var(--fs-md);
   color: rgba(240, 243, 248, 0.92);
-  max-width: 58ch;
-  line-height: 1.65;
-  margin-bottom: 2.2em;
+  max-width: 56ch;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 .hero-desc strong {
@@ -415,8 +456,8 @@ h1, h2, h3, h4 {
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 3em;
+  gap: 14px;
+  margin-bottom: 1.8em;
 }
 
 /* BOTÕES RACING */
@@ -482,11 +523,11 @@ h1, h2, h3, h4 {
 /* TELEMETRIA NO HERO */
 .hero-telemetry {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
   border-top: 1px solid var(--line);
-  padding-top: 2em;
-  max-width: 680px;
+  padding-top: 1.4em;
+  max-width: 720px;
 }
 
 .telemetry-card {
@@ -523,9 +564,8 @@ h1, h2, h3, h4 {
 /* SCROLL CUE */
 .scroll-cue {
   position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 20px;
+  right: clamp(16px, 4vw, 40px);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -534,7 +574,8 @@ h1, h2, h3, h4 {
   font-family: var(--font-hud);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
-  color: var(--text-muted);
+  color: rgba(240, 243, 248, 0.62);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
   transition: color 0.2s;
 }
 .scroll-cue:hover {
@@ -557,8 +598,12 @@ h1, h2, h3, h4 {
    SEÇÕES & CABEÇALHOS RACING
    ============================================================ */
 .section {
-  padding-block: clamp(70px, 10vw, 120px);
+  padding-block: clamp(64px, 8vw, 104px);
   position: relative;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 .section-racing {
@@ -596,17 +641,19 @@ h1, h2, h3, h4 {
 }
 
 .racing-title {
-  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-size: var(--fs-2xl);
   line-height: 0.96;
   color: #fff;
   margin-bottom: 0.35em;
+  text-wrap: balance;
 }
 
 .section-sub {
   color: var(--text-muted);
-  font-size: 1.06rem;
+  font-size: var(--fs-md);
   margin: 0;
   line-height: 1.6;
+  text-wrap: pretty;
 }
 
 /* ============================================================
@@ -620,9 +667,11 @@ h1, h2, h3, h4 {
 
 .race-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(145deg, var(--bg-surface-2), var(--bg-surface));
   border: 1px solid var(--line);
-  padding: 34px 28px 30px;
+  padding: 34px 28px 28px;
   transition: transform 0.3s var(--ease-race), border-color 0.3s, box-shadow 0.3s;
   overflow: hidden;
 }
@@ -692,7 +741,7 @@ h1, h2, h3, h4 {
 }
 
 .race-card h3 {
-  font-size: 1.45rem;
+  font-size: var(--fs-lg);
   color: #fff;
   margin-bottom: 0.6em;
 }
@@ -701,11 +750,12 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 1.8em;
+  margin-bottom: 1.6em;
 }
 
 .card-tag {
   display: inline-block;
+  align-self: flex-start;
   font-family: var(--font-hud);
   font-size: 0.72rem;
   font-weight: 700;
@@ -714,6 +764,23 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(255, 208, 0, 0.25);
   padding: 3px 10px;
   letter-spacing: 0.06em;
+}
+
+.card-cta {
+  margin-top: auto;
+  padding-top: 18px;
+  font-family: var(--font-hud);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--race-orange);
+  border-top: 1px solid var(--line);
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+.card-cta:hover {
+  color: #fff;
+  letter-spacing: 0.07em;
 }
 
 /* ============================================================
@@ -748,12 +815,18 @@ h1, h2, h3, h4 {
   overflow: hidden;
   transition: transform 0.35s var(--ease-race), border-color 0.3s;
 }
+.shot picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .shot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease-race), filter 0.4s;
   filter: contrast(1.05);
+  background: var(--bg-surface-3);
 }
 .shot:hover {
   transform: translateY(-4px);
@@ -1114,12 +1187,51 @@ h1, h2, h3, h4 {
 
 .map-frame-box {
   width: 100%;
-  height: 380px;
   position: relative;
-  background: #111;
+  aspect-ratio: 16 / 7;
+  min-height: 300px;
+  max-height: 460px;
+  background: var(--bg-surface);
+  overflow: hidden;
 }
 .map-frame-box iframe {
-  filter: contrast(1.08) saturate(1.1);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  z-index: 2;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+/* Camada de segurança: aparece se o mapa não carregar */
+.map-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 72, 0, 0.1), transparent 62%),
+    var(--bg-surface);
+}
+.map-fallback strong {
+  color: #fff;
+  font-size: 1.1rem;
+}
+.map-fallback-pin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--race-orange);
+  box-shadow: 0 0 0 6px rgba(255, 72, 0, 0.16);
+  margin-bottom: 12px;
 }
 
 /* ============================================================
@@ -1173,60 +1285,93 @@ h1, h2, h3, h4 {
    ============================================================ */
 .floating-whatsapp {
   position: fixed;
-  bottom: 26px;
-  right: 26px;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  right: max(18px, env(safe-area-inset-right));
   z-index: 999;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-race);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 0.3s var(--ease-race), transform 0.3s var(--ease-race), visibility 0.3s;
 }
-.floating-whatsapp:hover {
-  transform: translateY(-4px) scale(1.04);
+.floating-whatsapp.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 .floating-wa-radar {
   position: absolute;
-  inset: -6px;
+  inset: 0;
   border-radius: 999px;
   background: var(--race-green);
-  opacity: 0.45;
-  animation: waRadar 2s infinite ease-out;
+  opacity: 0.3;
+  animation: waRadar 2.4s infinite ease-out;
   pointer-events: none;
   z-index: -1;
 }
 
 @keyframes waRadar {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  100% { transform: scale(1.4); opacity: 0; }
+  0% { transform: scale(0.92); opacity: 0.5; }
+  100% { transform: scale(1.35); opacity: 0; }
 }
 
 .floating-wa-button {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  gap: 0;
   background: linear-gradient(135deg, #25d366, #128c7e);
   color: #ffffff;
-  padding: 13px 22px;
+  padding: 0;
   border-radius: 999px;
   border: 2px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 20px rgba(37, 211, 102, 0.35);
+  overflow: hidden;
+  transition: width 0.32s var(--ease-race), padding 0.32s var(--ease-race), box-shadow 0.25s;
 }
 
 .floating-wa-icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
 }
 
 .floating-wa-text {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   letter-spacing: 0.05em;
-  white-space: nowrap;
+  transition: max-width 0.32s var(--ease-race), opacity 0.2s, margin-left 0.32s;
+}
+
+/* Desktop: o rótulo só aparece no hover/foco, liberando o canto da tela */
+@media (hover: hover) and (pointer: fine) {
+  .floating-whatsapp:hover .floating-wa-button,
+  .floating-whatsapp:focus-visible .floating-wa-button {
+    width: auto;
+    padding: 0 20px;
+  }
+  .floating-whatsapp:hover .floating-wa-text,
+  .floating-whatsapp:focus-visible .floating-wa-text {
+    max-width: 220px;
+    opacity: 1;
+    margin-left: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-wa-radar { animation: none; opacity: 0.18; }
 }
 
 /* ============================================================
@@ -1302,6 +1447,12 @@ h1, h2, h3, h4 {
 /* ============================================================
    RESPONSIVO
    ============================================================ */
+@media (min-width: 700px) {
+  .telemetry-lbl strong {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 992px) {
   .sobre-racing-grid {
     grid-template-columns: 1fr;
@@ -1312,6 +1463,15 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 860px) {
+  .hero-racing-overlay {
+    background: linear-gradient(
+      100deg,
+      rgba(7, 8, 10, 0.95) 0%,
+      rgba(7, 8, 10, 0.9) 46%,
+      rgba(7, 8, 10, 0.62) 72%,
+      rgba(7, 8, 10, 0.4) 100%
+    );
+  }
   .nav-toggle {
     display: flex;
   }
@@ -1343,28 +1503,46 @@ h1, h2, h3, h4 {
   }
   .hero-motocross {
     min-height: auto;
-    padding-top: 70px;
-    padding-bottom: 90px;
+    padding-top: 56px;
+    padding-bottom: 76px;
+  }
+  .scroll-cue {
+    display: none;
+  }
+  section[id] {
+    scroll-margin-top: 84px;
   }
 }
 
 @media (max-width: 580px) {
   .hero-cta-group .btn {
     width: 100%;
+    font-size: 1rem;
+    padding: 14px 18px;
   }
   .ticker-flex {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
-  .floating-wa-button {
-    padding: 11px 16px;
+  .ticker-text {
+    display: none;
   }
-  .floating-wa-text {
-    font-size: 0.92rem;
+  .floating-wa-button {
+    width: 56px;
+    height: 56px;
+  }
+  .floating-wa-icon {
+    width: 24px;
+    height: 24px;
   }
   .map-header-bar {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .map-frame-box {
+    aspect-ratio: 4 / 3;
+    min-height: 280px;
+    max-height: 340px;
   }
 }

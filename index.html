@@ -6,13 +6,13 @@
   <title>MOTOSUL NOVA ODESSA — Oficina Especializada & Alta Performance Off-Road</title>
   <meta name="description" content="Motosul Nova Odessa: Especialistas em Motocross, Trilha, Street e Big Trail desde 2008. Preparação de suspensão, peças PROX, lavagem pós-trilha e manutenção pesada.">
   <meta name="theme-color" content="#07080a">
+  <meta name="color-scheme" content="dark">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" href="assets/img/logo.jpg" type="image/jpeg">
+  <link rel="icon" href="assets/img/logo.webp" type="image/webp">
 
-  <!-- Google Fonts: Motorsport Heavy Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fontes auto-hospedadas (sem terceiros, sem bloqueio de renderização) -->
+  <link rel="preload" href="assets/fonts/inter-normal-100_900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-condensed-italic-900.woff2" as="font" type="font/woff2" crossorigin>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="MOTOSUL RACING — Motocross & Oficina Especializada">
@@ -28,14 +28,14 @@
     <div class="wrap ticker-flex">
       <span class="ticker-badge"><span class="pulse-dot"></span> BOX ABERTO</span>
       <span class="ticker-text">RUA FRANCISCO DE SOUZA, 239 · JARDIM BELA VISTA · NOVA ODESSA - SP</span>
-      <a class="ticker-link" href="https://wa.me/5519971715368" target="_blank" rel="noopener">FALE DIRETO NO BOX &rarr;</a>
+      <a class="ticker-link" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20falar%20com%20a%20equipe." target="_blank" rel="noopener">FALE DIRETO NO BOX &rarr;</a>
     </div>
   </div>
 
   <header class="site-header" id="topo">
     <div class="wrap header-inner">
       <a class="brand" href="#topo" aria-label="Motosul Nova Odessa — início">
-        <img class="brand-logo" src="assets/img/logo-crop.png" alt="Motosul Racing" width="240" height="38">
+        <img class="brand-logo" src="assets/img/logo.webp" alt="Motosul Racing" width="240" height="38" fetchpriority="high">
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
@@ -47,7 +47,7 @@
         <a href="#galeria">MÁQUINAS &amp; BANCADA</a>
         <a href="#sobre">QUEM SOMOS</a>
         <a href="#contato">CONTATO &amp; MAPA</a>
-        <a class="btn btn-wa-nav" href="https://wa.me/5519971715368" target="_blank" rel="noopener">
+        <a class="btn btn-wa-nav" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20atendimento%20pelo%20WhatsApp." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" class="btn-icon" aria-hidden="true"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
           WHATSAPP BOX
         </a>
@@ -57,15 +57,13 @@
 
   <main id="main">
 
-    <!-- HERO MOTOCROSS EXTREME (100VH) - FOCO TOTAL NA IMAGEM E TITULO GIGANTE -->
+    <!-- HERO MOTOCROSS -->
     <section class="hero hero-motocross">
       <div class="hero-media-wrapper" aria-hidden="true">
-        <img class="hero-photo" src="assets/img/hero-chase.jpg" alt="Piloto de motocross em aceleração máxima na terra" width="1600" height="900" fetchpriority="high">
-        <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-chase.jpg">
-          <source src="assets/video/hero-loop.mp4" type="video/mp4">
-        </video>
+        <img class="hero-photo" src="assets/img/hero-chase.jpg" alt="Piloto de motocross em aceleração máxima na terra" width="1600" height="900" fetchpriority="high" decoding="async">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="none" poster="assets/img/hero-chase.jpg"
+               data-src-desktop="assets/video/hero-loop.mp4" data-src-mobile="assets/video/hero-loop-720.mp4"></video>
         <div class="hero-racing-overlay"></div>
-        <div class="hero-dirt-particles"></div>
       </div>
 
       <div class="wrap hero-content-container">
@@ -86,7 +84,7 @@
         </p>
 
         <div class="hero-cta-group">
-          <a class="btn btn-race-primary" href="https://wa.me/5519971715368" target="_blank" rel="noopener">
+          <a class="btn btn-race-primary" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20agendar%20uma%20revis%C3%A3o%20para%20minha%20moto." target="_blank" rel="noopener">
             <span>AGENDAR REVISÃO NO WHATSAPP</span>
             <svg viewBox="0 0 24 24" class="btn-arrow" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6"/></svg>
           </a>
@@ -154,6 +152,7 @@
             <h3>Recuperação &amp; Suspensão</h3>
             <p>Revisão de amortecedores dianteiros e traseiros, troca de retentores, fluídos de alta viscosidade para trilhas e saltos.</p>
             <span class="card-tag">Off-Road &amp; Street</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20recupera%C3%A7%C3%A3o%20e%20suspens%C3%A3o%20da%20minha%20moto." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
 
           <article class="race-card reveal">
@@ -165,6 +164,7 @@
             <h3>Lavagem Técnica Pós-Trilha</h3>
             <p>Descontaminação completa do barro e terra vermelha. Desengraxe seguro da relação, lubrificação e proteção de componentes.</p>
             <span class="card-tag">Cuidado Detalhado</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20lavagem%20t%C3%A9cnica%20p%C3%B3s-trilha." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
 
           <article class="race-card reveal">
@@ -176,6 +176,7 @@
             <h3>Troca de Óleo &amp; Filtros PROX</h3>
             <p>Lubrificantes de competição e filtros laváveis ou descartáveis PROX, garantindo que o motor respire ar limpo sem quebrar.</p>
             <span class="card-tag">Performance</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20troca%20de%20%C3%B3leo%20e%20filtros." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
 
           <article class="race-card reveal">
@@ -187,6 +188,7 @@
             <h3>Instalação de Bolhas &amp; Defletores</h3>
             <p>Montagem e alinhamento milimétrico de bolhas, defletores e proteções para Big Trails e motos de viagem severa.</p>
             <span class="card-tag">Acessórios</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20instala%C3%A7%C3%A3o%20de%20bolha%20e%20defletores." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
 
           <article class="race-card reveal">
@@ -198,6 +200,7 @@
             <h3>GPS &amp; Carregamento Blindado</h3>
             <p>Instalação de suportes de navegação, GPS e carregadores USB com fiação protegida contra vibração, água e lamaçal.</p>
             <span class="card-tag">Elétrica Protegida</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20instala%C3%A7%C3%A3o%20de%20GPS%20e%20carregamento." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
 
           <article class="race-card reveal">
@@ -209,6 +212,7 @@
             <h3>Peças &amp; Acessórios Premium</h3>
             <p>Linha completa em estoque: guidões esportivos, jaquetas, manoplas, pastilhas e componentes de alta resistência mecânica.</p>
             <span class="card-tag">Pronta Entrega</span>
+            <a class="card-cta" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20consultar%20pe%C3%A7as%20e%20acess%C3%B3rios%20dispon%C3%ADveis." target="_blank" rel="noopener">Solicitar orçamento <span aria-hidden="true">&rarr;</span></a>
           </article>
         </div>
       </div>
@@ -230,46 +234,58 @@
 
         <div class="race-gallery-grid">
           <div class="gallery-item reveal">
-            <button type="button" class="shot" data-full="assets/img/g03.webp">
-              <img src="assets/img/g03.webp" alt="BMW R1300 GS na oficina" width="1440" height="1440" loading="lazy">
-              <div class="shot-overlay">
+            <button type="button" class="shot" data-full="assets/img/g03.avif" data-full-fallback="assets/img/g03.webp">
+              <picture>
+                <source type="image/avif" srcset="assets/img/g03-800.avif 800w, assets/img/g03.avif 1440w" sizes="(min-width: 980px) 290px, (min-width: 640px) 46vw, 92vw">
+                <img src="assets/img/g03.webp" alt="BMW R1300 GS na oficina" width="1440" height="1440" loading="lazy" decoding="async">
+              </picture>
+              <span class="shot-overlay">
                 <span class="shot-category">BIG TRAIL</span>
                 <span class="shot-name">BMW R1300 GS</span>
                 <span class="shot-zoom-icon">&#x26F6; CLIQUE PARA AMPLIAR</span>
-              </div>
+              </span>
             </button>
           </div>
 
           <div class="gallery-item reveal">
-            <button type="button" class="shot" data-full="assets/img/g05.webp">
-              <img src="assets/img/g05.webp" alt="Kawasaki Versys 300 na bancada" width="1440" height="1440" loading="lazy">
-              <div class="shot-overlay">
+            <button type="button" class="shot" data-full="assets/img/g05.avif" data-full-fallback="assets/img/g05.webp">
+              <picture>
+                <source type="image/avif" srcset="assets/img/g05-800.avif 800w, assets/img/g05.avif 1440w" sizes="(min-width: 980px) 290px, (min-width: 640px) 46vw, 92vw">
+                <img src="assets/img/g05.webp" alt="Kawasaki Versys 300 na bancada" width="1440" height="1440" loading="lazy" decoding="async">
+              </picture>
+              <span class="shot-overlay">
                 <span class="shot-category">SUSPENSÃO TRASEIRA</span>
                 <span class="shot-name">Kawasaki Versys 300</span>
                 <span class="shot-zoom-icon">&#x26F6; CLIQUE PARA AMPLIAR</span>
-              </div>
+              </span>
             </button>
           </div>
 
           <div class="gallery-item reveal">
-            <button type="button" class="shot" data-full="assets/img/g04.webp">
-              <img src="assets/img/g04.webp" alt="Honda NX 160 na oficina" width="1440" height="1440" loading="lazy">
-              <div class="shot-overlay">
+            <button type="button" class="shot" data-full="assets/img/g04.avif" data-full-fallback="assets/img/g04.webp">
+              <picture>
+                <source type="image/avif" srcset="assets/img/g04-800.avif 800w, assets/img/g04.avif 1440w" sizes="(min-width: 980px) 290px, (min-width: 640px) 46vw, 92vw">
+                <img src="assets/img/g04.webp" alt="Honda NX 160 na oficina" width="1440" height="1440" loading="lazy" decoding="async">
+              </picture>
+              <span class="shot-overlay">
                 <span class="shot-category">REVISÃO COMPLETA</span>
                 <span class="shot-name">Honda NX 160</span>
                 <span class="shot-zoom-icon">&#x26F6; CLIQUE PARA AMPLIAR</span>
-              </div>
+              </span>
             </button>
           </div>
 
           <div class="gallery-item reveal">
-            <button type="button" class="shot" data-full="assets/img/g01.jpg">
-              <img src="assets/img/g01.jpg" alt="Filtros PROX em estoque na loja" width="1214" height="1600" loading="lazy">
-              <div class="shot-overlay">
+            <button type="button" class="shot" data-full="assets/img/g01.avif" data-full-fallback="assets/img/g01.jpg">
+              <picture>
+                <source type="image/avif" srcset="assets/img/g01-800.avif 800w, assets/img/g01.avif 1214w" sizes="(min-width: 980px) 290px, (min-width: 640px) 46vw, 92vw">
+                <img src="assets/img/g01.jpg" alt="Filtros PROX em estoque na loja" width="1214" height="1600" loading="lazy" decoding="async">
+              </picture>
+              <span class="shot-overlay">
                 <span class="shot-category">ALTA PERFORMANCE</span>
                 <span class="shot-name">Filtros de Óleo PROX</span>
                 <span class="shot-zoom-icon">&#x26F6; CLIQUE PARA AMPLIAR</span>
-              </div>
+              </span>
             </button>
           </div>
         </div>
@@ -345,7 +361,7 @@
             <div class="specs-footer-callout">
               <strong>Sua máquina não está na lista?</strong>
               <p>Fale conosco no WhatsApp para consultar seu modelo e necessidade.</p>
-              <a class="btn btn-race-primary full-w" href="https://wa.me/5519971715368" target="_blank" rel="noopener">
+              <a class="btn btn-race-primary full-w" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20consultar%20se%20voc%C3%AAs%20atendem%20minha%20moto.%20Modelo%3A%20" target="_blank" rel="noopener">
                 CONSULTAR MINHA MOTO
               </a>
             </div>
@@ -373,14 +389,14 @@
           <div class="pit-card pit-card-highlight reveal">
             <div class="pit-badge">CANAL DIRETO</div>
             <h3>WHATSAPP OFICINA</h3>
-            <p class="pit-number"><a href="https://wa.me/5519971715368" target="_blank" rel="noopener">(19) 97171-5368</a></p>
+            <p class="pit-number"><a href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20gostaria%20de%20falar%20com%20a%20equipe%20t%C3%A9cnica." target="_blank" rel="noopener">(19) 97171-5368</a></p>
             <p class="pit-desc">Tire dúvidas, envie fotos da moto e solicite agendamento direto com a equipe técnica.</p>
-            <a class="btn btn-race-primary full-w" href="https://wa.me/5519971715368" target="_blank" rel="noopener">
+            <a class="btn btn-race-primary full-w" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20gostaria%20de%20falar%20com%20a%20equipe%20t%C3%A9cnica." target="_blank" rel="noopener">
               MANDAR MENSAGEM NO BOX
             </a>
           </div>
 
-          <!-- CARD LOCALIZAÇÃO ATUALIZADO -->
+          <!-- CARD LOCALIZAÇÃO -->
           <div class="pit-card reveal">
             <div class="pit-badge">ENDEREÇO OFICIAL</div>
             <h3>OFICINA MOTOSUL</h3>
@@ -400,6 +416,9 @@
             <p class="pit-val">Segunda a Sexta: 08h às 18h</p>
             <p class="pit-city">Sábado: 08h às 12h</p>
             <p class="pit-desc">Consulte pelo WhatsApp para confirmar disponibilidade de bancada.</p>
+            <a class="btn btn-route-maps" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20confirmar%20a%20disponibilidade%20de%20bancada." target="_blank" rel="noopener">
+              CONFIRMAR DISPONIBILIDADE
+            </a>
           </div>
 
           <!-- CARD REDES SOCIAIS -->
@@ -421,7 +440,7 @@
           </div>
         </div>
 
-        <!-- MAPA GOOGLE MAPS INTEGRADO -->
+        <!-- MAPA INTEGRADO (OpenStreetMap — sem chave de API) -->
         <div class="map-section-wrapper reveal" id="mapa-oficina">
           <div class="map-header-bar">
             <div class="map-pin-info">
@@ -433,15 +452,17 @@
             </a>
           </div>
           <div class="map-frame-box">
-            <iframe 
-              src="https://maps.google.com/maps?q=Rua+Francisco+de+Souza,+239+-+Jardim+Bela+Vista,+Nova+Odessa+-+SP,+13385-012&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-              width="100%" 
-              height="380" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Localização da Motosul Nova Odessa no Google Maps">
+            <div class="map-fallback" aria-hidden="true">
+              <span class="map-fallback-pin"></span>
+              <strong>Rua Francisco de Souza, 239</strong>
+              <span>Jardim Bela Vista · Nova Odessa — SP</span>
+              <span>CEP 13385-012</span>
+            </div>
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-47.30380%2C-22.78820%2C-47.29580%2C-22.78220&amp;layer=mapnik&amp;marker=-22.78524%2C-47.29985"
+              title="Mapa da localização da Motosul Nova Odessa"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
         </div>
@@ -455,7 +476,7 @@
   <footer class="site-footer">
     <div class="wrap footer-content">
       <div class="footer-brand-col">
-        <img class="brand-logo footer-logo" src="assets/img/logo-crop.png" alt="Motosul Racing" width="180" height="28">
+        <img class="brand-logo footer-logo" src="assets/img/logo.webp" alt="Motosul Racing" width="180" height="28" loading="lazy" decoding="async">
         <p class="footer-tagline">PAIXÃO, GRAXA E PERFORMANCE EM DUAS RODAS.</p>
       </div>
       <div class="footer-info-col">
@@ -465,19 +486,19 @@
     </div>
   </footer>
 
-  <!-- BOTÃO WHATSAPP FLUTUANTE DE ALTO IMPACTO -->
-  <a class="floating-whatsapp" href="https://wa.me/5519971715368" target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a Motosul">
-    <div class="floating-wa-radar"></div>
-    <div class="floating-wa-button">
+  <!-- BOTÃO WHATSAPP FLUTUANTE (aparece após o hero; vira ícone no mobile) -->
+  <a class="floating-whatsapp" href="https://wa.me/5519971715368?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Motosul%20e%20quero%20atendimento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp com a Motosul">
+    <span class="floating-wa-radar" aria-hidden="true"></span>
+    <span class="floating-wa-button">
       <svg viewBox="0 0 24 24" class="floating-wa-icon" aria-hidden="true">
         <path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/>
       </svg>
       <span class="floating-wa-text">CHAMAR NO WHATSAPP</span>
-    </div>
+    </span>
   </a>
 
   <!-- LIGHTBOX NATIVO -->
-  <div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
     <button type="button" class="lightbox-close" aria-label="Fechar foto">&times;</button>
     <div class="lightbox-img-wrap">
       <img src="" alt="">
