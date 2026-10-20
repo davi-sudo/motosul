@@ -1,0 +1,19 @@
+{
+  "name": "Motosul Nova Odessa",
+  "short_name": "Motosul",
+  "description": "Especialistas em Motos Street e Off-Road desde 2008. Peças, acessórios e serviços.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0d10",
+  "theme_color": "#0b0d10",
+  "icons": [
+    {
+      "src": "assets/img/logo.jpg",
+      "sizes": "960x960",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

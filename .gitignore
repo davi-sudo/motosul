@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+vendor/
+.venv/
+venv/
+
+# Build / saida
+dist/
+build/
+out/
+.next/
+.cache/
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs e temporarios
+*.log
+npm-debug.log*
+tmp/
+temp/
+
+# Editores e SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Midia pesada (descomente se for versionar assets grandes fora do git)
+# *.mp4
+# *.zip
+# *.rar
